@@ -1,17 +1,66 @@
 .background{
-    width:100%;
-    height:100%;
-    background-color: red;
+    padding:20px 0px;
+}
+
+.startscreen{
+    margin: 0px auto;
+    width:1000px;
+}
+
+.header{
     position:relative;
+    width:1000px;
+    border:1px solid black;
+    height:110px;
     text-align: center;
+    display:flex;
+    background-color: ghostwhite;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+}
+
+.gamelogo{
+    width:70px;
+    height:70px;
+
+}
+
+.gamehead{
+    padding:20px;
+    font-family: 'Kurale', serif;
+    font-size: 50px;
+    color:blueviolet;
+}
+
+.middle{
+    border:1px solid black;
+    height:250px;
+    vertical-align: middle;
+    background-color: Antiquewhite;
+}
+
+.difficultywrapper , .themewrapper{
+    display: inline-block;
+    text-align: center;
+    width:49%;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.bottom{
+    border:1px solid black;
+    height:200px;
+    background-color: Aliceblue;
 }
 
 .gamewrapper{
-    position:absolute;
     border:1px solid black;
     text-align: center;
     width:1000px;
-    margin:50px;
+    margin: 0px auto;
+    /*display:none;*/
 }
 
 .cardholder{
@@ -26,3 +75,20 @@
 .cardholder:hover{
     cursor: pointer;
 }
+
+.difficulty , .theme{
+    display:block;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    color:blue;
+}
+
+.difficulty.head , .theme.head{
+    font-family: 'Kurale', serif;
+    font-size: 30px;
+    color:blue;
+}
+.playername, .startbtn{
+    
+}
+

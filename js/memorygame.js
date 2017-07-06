@@ -1,11 +1,7 @@
 var Memory = {};
 
-function Card(name, image){
-    this.name = name;
-    this.image = image;
-}
+Memory.array = [1,2,3,4,5,6,7,8,9,10,11,12];
 
-Memory.array = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12];
 Memory.difficulty = "easy";
 Memory.theme = "baby-animals";
 Memory.flippedcards = 0;
@@ -43,6 +39,7 @@ Memory.createDesign = function(){
 }
 
 Memory.flipCard = function(){
+    console.log(Memory.flippedcards);
     var element = event.target;
     if(Memory.flippedcards != 2 && element.className === "cardholder flipped"){
         Memory.unFlipCard();
@@ -50,13 +47,15 @@ Memory.flipCard = function(){
     }
     else if(Memory.flippedcards < 2){
         var name = element.getAttribute("name");
-        element.style.backgroundImage = "url('./images/" + name + ".jpg')";
+        element.style.backgroundImage = "url('./images/" + name + "_" + Memory.theme + ".jpg')";
         element.className += " flipped";
         Memory.flippedcards++;
     }
     if(Memory.flippedcards == 2){
         var cards = document.getElementsByClassName("flipped");
         if(cards.length == 2 && cards[0].getAttribute("name") === cards[1].getAttribute("name")){
+            cards[0].removeEventListener("click", Memory.flipCard);
+            cards[1].removeEventListener("click", Memory.flipCard);
             cards[1].className = cards[1].className.replace(/ flipped/, " matched");
             cards[0].className = cards[0].className.replace(/ flipped/, " matched");
             Memory.flippedcards = 0;

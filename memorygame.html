@@ -6,16 +6,40 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/memorygame.css">
         <link rel="icon" href="./images/icon.jpg" type="image/png">
+        <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     </head>
 
     <body>
         <div class="background">
-            <div class="gamewrapper" id="gamewrapper"> <!-- <style="display:none"> -->
+            <div class="startscreen">
+                <div class="header">
+                    <img src="./images/icon.jpg" alt="Game Logo" class="gamelogo" />
+                    <span class="gamehead">Memory Game</span>
+                </div>
+                <div class="middle">
+                    <div class="difficultywrapper">
+                        <span class="difficulty head">Difficulty</span>
+                        <label class="difficulty"><input type="radio" name="difficulty" id="easy" checked /> Easy</label>
+                        <label class="difficulty"><input type="radio" name="difficulty" id="medium" /> Medium</label>
+                        <label class="difficulty"><input type="radio" name="difficulty" id="hard" /> Hard</label>
+                    </div>
+                    <div class="themewrapper">
+                        <span class="theme head">Difficulty</span>
+                        <label class="theme"><input type="radio" name="theme" id="babyanimals" checked /> Baby Animals</label>
+                        <label class="theme"><input type="radio" name="theme" id="pokemons" /> Pokemons</label>
+                        <label class="theme"><input type="radio" name="theme" id="brands" /> Brands</label>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <label class="playername">Enter Your Name (to save Score):<input type="text" id="name" /></label><button class="startbtn" id="start">Start</button>
+                </div>
+
+            </div>
+            <div class="gamewrapper" id="gamewrapper" style="display:none">
                 
             </div>
         </div>
-
-
 
 
         <script src="./js/memorygame.js"></script>
