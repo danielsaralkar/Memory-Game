@@ -10,6 +10,7 @@ Memory.flip = 0;
 Memory.highScore = {};
 Memory.maxScore = 6;
 
+//Start game with Start button
 Memory.startGame = function(){
     document.getElementById("newgame").addEventListener("click", Memory.newGame);
     document.getElementById("startscreen").style.display = "none";
@@ -33,6 +34,7 @@ Memory.startGame = function(){
     Memory.createDesign();
 }
 
+//Create a new game layout with new game button
 Memory.newGame = function(){
     var difficulty = document.getElementsByName("difficulty2");
     var theme = document.getElementsByName("theme2");
@@ -52,6 +54,7 @@ Memory.newGame = function(){
     Memory.createDesign();
 }
 
+//Dynamically create game structure and reset few global variables
 Memory.createDesign = function(){
     var wrapper = document.getElementById("gamewrapper");
     wrapper.style.display = "inline-block";
@@ -71,6 +74,8 @@ Memory.createDesign = function(){
     else{
         document.getElementById("bestscore").innerHTML = "No High Score Yet In This Difficulty";
     }
+
+    //Generate counts of rows and columns based on difficulty level
     if(Memory.difficulty == "medium"){
         columns = 6;
         rows = 3;
@@ -82,12 +87,14 @@ Memory.createDesign = function(){
         Memory.maxScore = 12;
     }
     var cardNames = Memory.generateCardNames(columns, rows);
+    //Create dynamic game structure
     for(var i=0; i < rows; i++){
         var rowdiv = document.createElement("div");
         wrapper.appendChild(rowdiv);
         for(var j=0; j < columns; j++){
             var coldiv = document.createElement("div");
             coldiv.className = "cardholder";
+            coldiv.style.backgroundImage = "url('./images/" + Memory.theme + "/texture.jpg')";
             coldiv.addEventListener("click", Memory.flipCard);            
             var random = Math.floor(Math.random() * cardNames.length);
             coldiv.setAttribute("name", cardNames[random]);
@@ -97,6 +104,7 @@ Memory.createDesign = function(){
     }
 }
 
+//Generate a random array depending on difficulty level
 Memory.generateCardNames = function(columns, rows){
     var count = (columns * rows) / 2;
     var tempArray = Memory.cardNames.slice(0);
@@ -110,6 +118,7 @@ Memory.generateCardNames = function(columns, rows){
     return returnArray;
 }
 
+//Flip the clicked card and also check that not more then 2 cards are flipped at the same moment
 Memory.flipCard = function(){
     var element = event.target;
     var flippedCards = document.getElementsByClassName("flipped");
@@ -129,8 +138,10 @@ Memory.flipCard = function(){
     }
 }
 
+//Function to verify about the two flipped cards
 Memory.unFlipCards = function(flippedCards){
     if(flippedCards.length == 2){
+        //Check if both flipped cards are same or no
         if(flippedCards[0].getAttribute("name") === flippedCards[1].getAttribute("name")){
             flippedCards[1].removeEventListener("click", Memory.flipCard);
             flippedCards[1].className = flippedCards[1].className.replace(/ flipped/, " matched");
@@ -139,6 +150,7 @@ Memory.unFlipCards = function(flippedCards){
             Memory.Status++;
             if(Memory.Status === Memory.maxScore){
                 document.getElementById("youwin").style.display = "block";
+                //Display highscore for that particular difficulty
                 if(Memory.highScore.name != undefined){
                     var tempScore = {};
                     if(Memory.wrongGuesses < Memory.highScore.score && Memory.playerName != ""){
@@ -161,10 +173,11 @@ Memory.unFlipCards = function(flippedCards){
                 }
             }
         }
+        //Unflip the two cards if they are not same.
         else{
-                flippedCards[1].style.backgroundImage = "url('./images/texture.jpg')";
+                flippedCards[1].style.backgroundImage = "url('./images/" + Memory.theme + "/texture.jpg')";
                 flippedCards[1].classList.remove("flipped");
-                flippedCards[0].style.backgroundImage = "url('./images/texture.jpg')";
+                flippedCards[0].style.backgroundImage = "url('./images/" + Memory.theme + "/texture.jpg')";
                 flippedCards[0].classList.remove("flipped");
                 Memory.wrongGuesses++;
                 document.getElementById("guess").innerHTML = "Wrong Guesses : " + Memory.wrongGuesses;
@@ -172,6 +185,7 @@ Memory.unFlipCards = function(flippedCards){
     }
 }
 
+//Basic add event for start game
 Memory.addEvents = function(){
     document.getElementById("start").addEventListener("click", Memory.startGame);
 }

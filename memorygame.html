@@ -13,12 +13,15 @@
     </head>
 
     <body>
+        <!-- The complete wrapper which holds the background and all other structures  -->
         <div class="background">
             <div class="startscreen" id="startscreen">
+                <!-- Holds the game logo and name  -->
                 <div class="header">
                     <img src="./images/icon.jpg" alt="Game Logo" class="gamelogo" />
                     <span class="gamehead">Memory Game</span>
                 </div>
+                <!-- Hold the options which can be selected by the user  -->
                 <div class="middle">
                     <div class="difficultywrapper">
                         <span class="difficulty head">Difficulty</span>
@@ -33,11 +36,14 @@
                         <label class="theme"><input type="radio" name="theme" value="brands" /> Brands</label>
                     </div>
                 </div>
+                <!-- Takes name from User and Button to start the game -->
                 <div class="bottom">
-                    <label class="playername">Enter Your Name (to save Score) : <input type="text" id="playername" /></label><button class="startbtn" id="start">Start</button>
+                    <label class="playername">Enter Your Name (to save Score) : <input type="text" id="playername" /></label>
+                    <button class="startbtn" id="start">Start</button>
                 </div>
 
             </div>
+            <!-- Options incase user wants to start new game.  -->
             <div class="options-button" id="options-button" style="display:none">
                 <div class="difficultywrapper">
                         <span class="difficulty head">Difficulty : </span>
@@ -53,14 +59,17 @@
                     </div>
                     <button class="newgame" id="newgame">New Game</button>
             </div>
+            <!-- Showing Additional Information to the User  -->
             <div class="information" id="information" style="display:none">
                 <label class="guess" id="guess">Wrong Guesses : 0</label><label class="bestscore" id="bestscore">No High Score Yet In This Difficulty</label>
             </div>
+            <!-- Holds all the dynamically created cards by the js  -->
             <div class="gamewrapper" id="gamewrapper" style="display:none">
                 
             </div>
         </div>
 
+        <!-- This alert is only shown when the user completes the game or wins  -->
         <div class="youwin" id="youwin" style="display:none">
             <h1 id="youwinmsg" class="youwinmsg">YOU WIN!!!</h1>
         </div>
