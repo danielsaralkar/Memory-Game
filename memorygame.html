@@ -8,11 +8,13 @@
         <link rel="icon" href="./images/icon.jpg" type="image/png">
         <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Yrsa" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Trade+Winds" rel="stylesheet">
     </head>
 
     <body>
         <div class="background">
-            <div class="startscreen">
+            <div class="startscreen" id="startscreen">
                 <div class="header">
                     <img src="./images/icon.jpg" alt="Game Logo" class="gamelogo" />
                     <span class="gamehead">Memory Game</span>
@@ -20,27 +22,48 @@
                 <div class="middle">
                     <div class="difficultywrapper">
                         <span class="difficulty head">Difficulty</span>
-                        <label class="difficulty"><input type="radio" name="difficulty" id="easy" checked /> Easy</label>
-                        <label class="difficulty"><input type="radio" name="difficulty" id="medium" /> Medium</label>
-                        <label class="difficulty"><input type="radio" name="difficulty" id="hard" /> Hard</label>
+                        <label class="difficulty"><input type="radio" name="difficulty" value="easy" checked /> Easy</label>
+                        <label class="difficulty"><input type="radio" name="difficulty" value="medium" /> Medium</label>
+                        <label class="difficulty"><input type="radio" name="difficulty" value="hard" /> Hard</label>
                     </div>
                     <div class="themewrapper">
-                        <span class="theme head">Difficulty</span>
-                        <label class="theme"><input type="radio" name="theme" id="babyanimals" checked /> Baby Animals</label>
-                        <label class="theme"><input type="radio" name="theme" id="pokemons" /> Pokemons</label>
-                        <label class="theme"><input type="radio" name="theme" id="brands" /> Brands</label>
+                        <span class="theme head">Theme</span>
+                        <label class="theme"><input type="radio" name="theme" value="babyanimals" checked /> Baby Animals</label>
+                        <label class="theme"><input type="radio" name="theme" value="pokemons" /> Pokemons</label>
+                        <label class="theme"><input type="radio" name="theme" value="brands" /> Brands</label>
                     </div>
                 </div>
                 <div class="bottom">
-                    <label class="playername">Enter Your Name (to save Score):<input type="text" id="name" /></label><button class="startbtn" id="start">Start</button>
+                    <label class="playername">Enter Your Name (to save Score) : <input type="text" id="playername" /></label><button class="startbtn" id="start">Start</button>
                 </div>
 
+            </div>
+            <div class="options-button" id="options-button" style="display:none">
+                <div class="difficultywrapper">
+                        <span class="difficulty head">Difficulty : </span>
+                        <label class="difficulty"><input type="radio" name="difficulty2" value="easy" checked /> Easy </label>
+                        <label class="difficulty"><input type="radio" name="difficulty2" value="medium" /> Medium </label>
+                        <label class="difficulty"><input type="radio" name="difficulty2" value="hard" /> Hard </label>
+                    </div>
+                    <div class="themewrapper">
+                        <span class="theme head">Theme : </span>
+                        <label class="theme"><input type="radio" name="theme2" value="babyanimals" checked /> Baby Animals </label>
+                        <label class="theme"><input type="radio" name="theme2" value="pokemons" /> Pokemons </label>
+                        <label class="theme"><input type="radio" name="theme2" value="brands" /> Brands </label>
+                    </div>
+                    <button class="newgame" id="newgame">New Game</button>
+            </div>
+            <div class="information" id="information" style="display:none">
+                <label class="guess" id="guess">Wrong Guesses : 0</label><label class="bestscore" id="bestscore">No High Score Yet In This Difficulty</label>
             </div>
             <div class="gamewrapper" id="gamewrapper" style="display:none">
                 
             </div>
         </div>
 
+        <div class="youwin" id="youwin" style="display:none">
+            <h1 id="youwinmsg" class="youwinmsg">YOU WIN!!!</h1>
+        </div>
 
         <script src="./js/memorygame.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

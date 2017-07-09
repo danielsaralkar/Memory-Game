@@ -1,10 +1,14 @@
 .background{
     padding:20px 0px;
+    text-align: center;
+    background-image: url("../images/bg.jpg");
+    background-size: 100% 100%;
 }
 
 .startscreen{
     margin: 0px auto;
     width:1000px;
+    transition: display 3s;
 }
 
 .header{
@@ -40,7 +44,7 @@
     background-color: Antiquewhite;
 }
 
-.difficultywrapper , .themewrapper{
+.middle .difficultywrapper , .middle .themewrapper{
     display: inline-block;
     text-align: center;
     width:49%;
@@ -53,42 +57,133 @@
     border:1px solid black;
     height:200px;
     background-color: Aliceblue;
+    text-align: center;
 }
 
 .gamewrapper{
     border:1px solid black;
     text-align: center;
-    width:1000px;
-    margin: 0px auto;
-    /*display:none;*/
+    margin-top: 15px;
 }
 
 .cardholder{
-    height:150px;
-    width: 150px;
-    margin: 20px;
+    height:125px;
+    width: 125px;
+    margin: 15px;
     background-image: url('../images/texture.jpg');
-    background-size: cover;
+    background-size: 100% 100%;
     display: inline-block;
+    box-shadow: 10px 10px 5px #888888;
+    transition: transform 1s, background-image 500ms;
 }
 
 .cardholder:hover{
     cursor: pointer;
 }
 
-.difficulty , .theme{
+.flipped{
+    transform: rotateY(360deg);
+    transition: transform 1s, background-image 500ms;
+}
+
+.matched{
+    transition: none;
+    transform: rotateY(360deg);
+}
+
+.middle .difficulty , .middle .theme{
     display:block;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 20px;
     color:blue;
 }
 
-.difficulty.head , .theme.head{
+.middle .difficulty.head , .middle .theme.head{
     font-family: 'Kurale', serif;
     font-size: 30px;
     color:blue;
 }
 .playername, .startbtn{
-    
+    position:relative;
+    font-family: 'Yrsa', serif;
+    font-size: 25px;
+    margin: 0px 25px;
+    top: 30%;
+    display: inline-block;
 }
 
+.startbtn{
+    color: brown;
+    padding: 10px 55px;
+    font-weight: bold;
+    font-size: 35px;
+    box-shadow: 10px 10px 5px;
+}
+
+.options-button{
+    text-align: center;
+}
+
+.options-button .difficultywrapper , .options-button .themewrapper{
+    display: inline-block;
+    text-align: center;
+    width:35%;
+    position: relative;
+}
+
+.options-button .difficulty , .options-button .theme{
+    display:inline-block;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    color:blue;
+}
+
+.options-button .difficulty.head , .options-button .theme.head{
+    font-family: 'Kurale', serif;
+    font-size: 30px;
+    color:blue;
+}
+
+.options-button .newgame{
+    font-family: 'Yrsa', serif;
+    display: inline-block;
+    color: brown;
+    margin: 0px 25px;
+    padding: 5px 25px;
+    font-weight: bold;
+    font-size: 25px;
+    box-shadow: 10px 10px 5px;
+}
+
+.information{
+    text-align: center;
+}
+
+.information .guess, .information .bestscore{
+    font-family: 'Trade Winds', cursive;
+    display:inline-block;
+    margin: 0px 50px;
+    font-size: 25px;
+}
+
+.youwin{
+    background-image: url("../images/win.gif");
+    width:50%;
+    height:50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.youwinmsg{
+    color: whitesmoke;
+    font-size: 50px;
+    width:50%;
+    height:50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    padding: 10px;
+}
